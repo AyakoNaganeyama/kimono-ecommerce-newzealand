@@ -8,7 +8,8 @@ The website is an ecommerce website that sell Kimono. The following are the main
 features of the kimono website:
 
 ### homepage:
-![image](https://github.com/user-attachments/assets/0eedadf4-c4c3-49e8-ad8f-e4e6389a6367)
+![Home Screenshot](./home.jpg)
+
 
 ### for public audience: 
 - Display all products (Kimonos)
