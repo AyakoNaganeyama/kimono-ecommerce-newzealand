@@ -1,6 +1,6 @@
 # Kimono e-commerce website
 
-##  The original repository was recreated due to sensitive information in the commit history
+##  This is the new repository for Kimono New Zealand. The original repository was recreated due to sensitive information in the commit history. If necessary, I can provide specific details upon request.
 
 ## About
 
