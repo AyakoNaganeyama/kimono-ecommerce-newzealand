@@ -4,7 +4,7 @@
 
 ## About
 
-The website is an ecommerce website that sell Kimono. The following are the main
+The website is an demo ecommerce website that sell Kimono. The following are the main
 features of the kimono website:
 
 ## If you would like to test as a logged in user
