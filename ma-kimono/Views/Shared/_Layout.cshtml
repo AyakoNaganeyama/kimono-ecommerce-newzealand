@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] MA KIMONO</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ma_kimono.styles.css" asp-append-version="true" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Josefin Sans" />
+
+@* CSS for home page *@
+
+    <style>
+        .homepage {
+            background-image: url("/img/imgwoman/red4.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: none;
+            background-attachment: fixed; /*Making the cover image not move */
+            position: relative; /*Making hero section parent*/
+            z-index: 2;
+        }
+
+        .homepage::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(37, 39, 71, 0.7);
+            z-index: -1; /*heroafter goes behind hero */
+        }
+
+        .catalogTitle {
+            font-size: 72px;
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        h1 {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+
+        h5 {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        p {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        #external-account > div > p {
+            -webkit-text-fill-color: initial !important;
+        }
+
+        #registerForm > h2 {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        #external-account > div > p > button {
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            border-radius: .3rem;
+        }
+
+        #account > h2 {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        body {
+            font-family: Josefin Sans;
+            background-color: #012933
+        }
+
+        a {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        label {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        dt {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        dd {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        th {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        td {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        .filter {
+            opacity: 0.6;
+        }
+
+        .filterBase {
+            background-color: rgba(37, 39, 71, 0.7);
+        }
+
+        h3 {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+        body > div > main > div > h4 {
+            background: -webkit-linear-gradient(#f6d3a0, #9d7050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: Josefin Sans;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:#012933;">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ayako_kimono</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated && !User.IsInRole("admin") && !User.IsInRole("manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="ViewOrderItems">Cart</a>
+                            </li>
+                        }
+
+
+                        @if (User.Identity.IsAuthenticated && !User.IsInRole("admin") && !User.IsInRole("manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="ChangeSubscription" >Manage your subscription</a>
+                            </li>
+                        }
+
+                        @*  //4/06 Ayako *@
+                        @if (User.IsInRole("admin") || User.IsInRole("manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SalesByBrand" asp-action="Menu">Report</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("admin") || User.IsInRole("manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Manage">Admin Dashboard</a>
+                            </li>
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - ayako_kimono - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

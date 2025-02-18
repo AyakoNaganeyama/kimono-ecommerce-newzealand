@@ -1,0 +1,43 @@
+﻿@model ma_kimono.Models.DB.Customer; 
+
+<form Method="post" action="/Customer/ChangeSubscription">
+    <div class="row">
+        <div class="col-md-12" style="margin-bottom:20px">
+            <label for="isMember" style="font-size:20px">Subscription Status:</label>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem; background-color:#192231;height:200px">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Ismember" id="isMemberTrue" value="true" required>
+                            <label class="form-check-label" for="isMemberTrue">Member</label>
+                        </div>
+                    </h5>
+                    <p class="card-text">You get 20% off for becoming a member! </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;background-color:#192231; height:200px">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Ismember" id="isMemberFalse" value="false" required>
+                            <label class="form-check-label" for="isMemberFalse">Non-Member</label>
+                        </div>
+                    </h5>
+                    <p class="card-text">Unsbscribe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+</form>

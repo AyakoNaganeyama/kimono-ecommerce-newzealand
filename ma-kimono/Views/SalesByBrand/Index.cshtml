@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ma_kimono.VM.SalesByBrand>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sales by Brand</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BrandID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BrandID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BrandID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<h1>Top 3 Loyal Customers</h1>
+
+<div ng-app="myApp" ng-controller="customerCtrl">
+    <table class="table">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Total Amount Spent</th>
+            <th>Rewords</th>
+        </tr>
+
+        @*    //Products come from scope_products *@
+        <tr ng-repeat="item in customers">
+            <td>{{item.FirstName }}</td>
+            <td>{{item.LastName }}</td>
+            <td>{{item.TotalSpent }}</td>
+            <td>${{item.TotalSpent * 0.1}} </td>
+        </tr>
+    </table>
+</div>
+
+@*angular updating dom*@ 
+<script>
+    var _$http;
+    var _$scope;
+    var app = angular.module('myApp', []);
+    app.controller('customerCtrl', xConstrutor);
+    function xConstrutor($http, $scope) {
+        _$http = $http;
+        _$scope = $scope;
+        // makes an HTTP Get request to the "/Report/GetProducts" URL
+        // When the reponse is received, it calls the 'xReceive' function
+        $http.get("/LoyalCustomer/GetCustomer").then(xReceive);
+    }
+    function xReceive(customerObject) {
+        _$scope.customers = customerObject.data;
+    }
+</script>

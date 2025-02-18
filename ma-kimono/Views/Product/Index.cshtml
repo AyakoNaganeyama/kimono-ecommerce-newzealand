@@ -1,0 +1,122 @@
+﻿@model IPagedList<ma_kimono.Models.DB.Product>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common;
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool isMemebr = ViewBag.IsMember;
+}
+<h1>Kimono Catalog</h1>
+<form id="searchFrom" action="/Product/Index" method="get">
+    <p>Search Products: </p>
+    <input type="text" id="searchString" name="SearchString" style="width:180px"
+           onkeyup="XAjaxRequest(this.value);" />
+    <input type="submit" value="Search" />
+    <br />
+    <div id="AutoSuggestContainer" style="position:absolute;display:none;z-index:100;">
+    </div>
+</form>
+@if (User.IsInRole("admin") || User.IsInRole("manager"))
+{
+    <p style="margin-top:20px">
+        <a asp-action="Create" class="btn btn-outline-light">Create New</a>
+    </p>
+}
+@* Sort by Price https://www.youtube.com/watch?v=Gwywk7AaqQE&t=38s&ab_channel=StudyMash*@
+<table>
+    <tr>
+        <th style=" padding: 20px;"><a asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParam" asp-route-pageNumber="@Model.PageNumber" style="text-decoration: underline;text-decoration-color:gold">Sort By Price      | </a></th>
+        <th>
+            <form asp-action="Index" method="get">
+                <div style="display: flex; align-items: center;">
+                    <div class="category-radio">
+                        <label>
+                            <input type="radio" name="category" value="1" required> Male
+                        </label>
+                        <label>
+                            <input type="radio" name="category" value="2" required> Female
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-outline-light">Submit</button>
+                </div>
+            </form>
+        </th>
+    </tr>
+</table>
+<hr style="color:white; width:100%; margin-top:0px" />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 cols">
+            <div class="mt-3 ToFix">
+                <div class="card" style="background-color:#192231;">
+                    <div class="card-body">
+                        <a asp-action="Details" asp-route-id="@item.ProductId">
+                            <img src="@Url.Content(item.ProductImg)" alt="Kimono Image" style="width:100%">
+                        </a>
+                        <div class="card-title catalogTitle"><h4>@Html.DisplayFor(modelItem => item.ProductName)</h4></div>
+                        <p class="cardP"> @* @Html.DisplayFor(modelItem => item.ProductDescription) *@ @Html.Raw(item.ProductDescription)</p>
+                        <p>
+                            $@Html.DisplayFor(modelItem => item.ProductPrice)
+                            @if (isMemebr)
+                            {
+                                <span> you are member, 20% off!!</span>
+                            }
+                        </p>
+
+                        @if (User.IsInRole("admin") || User.IsInRole("manager"))
+                        {
+                            <p class="text-center">
+                                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                            </p>
+                        }
+                        <p style="display:none;">@Html.DisplayFor(modelItem => item.ProductDescription)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@Html.PagedListPager(Model, page => Url.Action("Index",
+        new { Page = page }),
+        new PagedListRenderOptions
+        {
+            LiElementClasses = new string[] { "page-item" },
+            PageClasses = new string[] { "page-link" }
+    })
+<script type="text/javascript">
+    function XAjaxRequest(searchString) {
+        if (searchString.length < 3) {
+            //on deleting input to enter something else, needs clear
+            document.getElementById("AutoSuggestContainer").innerHTML = "";
+            return;
+        }
+        //alert("testing searchString=" + searchString);
+        var xmlhttp;
+        xmlhttp = new XMLHttpRequest();
+        var url = "/Product/IndexAJAX?searchString=" + searchString;
+        xmlhttp.open("GET", url, false); // open connection, GET is quick and simple, false: sync page will freeze
+        xmlhttp.send(); // send the request to IndexAJAX
+        document.getElementById("AutoSuggestContainer").style.display = "block";
+        //need to clear out the container for a fresh auto-suggest list
+        //else the auto-suggest list can keep growing and growing with additional user keyups
+        document.getElementById("AutoSuggestContainer").innerHTML = "";
+        var messageObject = JSON.parse(xmlhttp.responseText); // receive the respose text
+        var autoSuggestions = "";
+        for (var i = 0; i < messageObject.length; i++) {
+            //HTML code generation demo
+            //Works together with the ".innerHTML" statement after the end of this "for" block
+            autoSuggestions +=
+                "<input type=\"button\" value=\"" + messageObject[i].ProductName + "\" "
+                + "onclick=\"document.getElementById('searchString').value = this.value; document.getElementById('searchForm').submit();\" "
+                + "style =\"width: 280px\" />";
+            autoSuggestions += "<br />";
+        }
+        //place the generated buttons HTML code inside the display div
+        document.getElementById("AutoSuggestContainer").innerHTML = autoSuggestions;
+    }
+</script>
+

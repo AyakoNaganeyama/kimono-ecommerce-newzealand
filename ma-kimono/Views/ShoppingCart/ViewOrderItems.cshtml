@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ma_kimono.Models.DB.OrderItem>
+
+@{
+    bool isMember = ViewBag.Member;
+}
+
+<div style="display: flex;justify-content: flex-end;">
+    <a class="btn btn-outline-light" asp-controller="Product" asp-action="Index">Back to list</a>
+</div>
+
+@*     3/06 Ayako and Multi checkung if shopping items are added in list  *@
+@if (isMember && Model != null)
+{
+    <h1>Congratulations, applied 20% off!</h1>
+}
+<table class="table">
+    <tr>
+        <th>Kimono</th>
+        <th>QTY</th>
+        <th>SubTotal</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item?.Product?.ProductName</td>
+            <td>@item?.Qty</td>
+            <td>@item?.Subtotal</td>
+
+            @*   //4/06 Ayako Added delete button *@
+            <td>
+                <form asp-controller="ShoppingCart" asp-action="DeleteItem" method="post">
+                    <input type="hidden" value="@item.ProductId" name="productId" />
+                    <button type="submit" class="btn btn-danger btn-sm" style="-webkit-text-fill-color: white !important">Delete</button>
+                </form>
+
+            </td>
+        </tr>
+    }
+</table>
+
+@* Ayako and Multi if item is not empty show comfirm  *@
+@if (Model != null && Model.Any())
+{
+    <div style="display: flex;justify-content: flex-end;">
+        <a class="btn btn-outline-light" asp-controller="ShoppingCart" asp-action="OrderComfirm" asp-route-UID="@ViewBag.id">Confirm Order</a>
+    </div>
+}
+

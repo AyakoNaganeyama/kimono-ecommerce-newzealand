@@ -1,0 +1,100 @@
+﻿@model ma_kimono.Models.DB.Customer
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Edit</h1>
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        
+        <label style="display: none" asp-for="User.Id" class="control-label"></label>
+        <p style="display: none">@(Model.User?.Id ?? "User ID not available")</p>
+
+        <form asp-action="Edit">
+
+            
+            <div style="display: none" asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input style="display: none" type="hidden" asp-for="CustomerId" />
+
+            @*    ///////////////////////////////////////////////from asp.net User class /////////////////////////////////// *@
+            <div style="display: none" class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" readonly />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.FirstName" class="control-label"></label>
+                <input asp-for="User.FirstName" name="FirstName" class="form-control" required />
+                <span asp-validation-for="User.FirstName" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="User.LastName" class="control-label"></label>
+                <input name="LastName" asp-for="User.LastName" class="form-control" required />
+                <span asp-validation-for="User.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.PhoneNumber" class="control-label"></label>
+                <input asp-for="User.PhoneNumber" class="form-control" name="Phone" required />
+                <span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            @*    ///////////////////////////////////////////////from customer class /////////////////////////////////// *@
+            <div class="form-group">
+                <label asp-for="CustomerMobileNumber" class="control-label"></label>
+                <input asp-for="CustomerMobileNumber" class="form-control" required />
+                <span asp-validation-for="CustomerMobileNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CustomerAddress" class="control-label"></label>
+                <input asp-for="CustomerAddress" class="form-control" required />
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CustomerPaymentMethod" class="control-label"></label>
+                <input asp-for="CustomerPaymentMethod" class="form-control" required />
+                <span asp-validation-for="CustomerPaymentMethod" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Subscription</label>
+                <div>
+                    <label>
+                        <input asp-for="IsSubscribed" type="radio" value="true" checked="@Model.IsSubscribed.GetValueOrDefault()" />
+                        Yes
+                    </label>
+                    <label>
+                        <input asp-for="IsSubscribed" type="radio" value="false" checked="!@Model.IsSubscribed.GetValueOrDefault()" />
+                        No
+                    </label>
+                </div>
+                <span asp-validation-for="IsSubscribed" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

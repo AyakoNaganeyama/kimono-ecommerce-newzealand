@@ -1,0 +1,115 @@
+﻿@model ma_kimono.Models.DB.Product
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Create</h1>
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" maxlength="12" required />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                
+                <label asp-for="ProductDescription" class="control-label"></label>
+                <textarea asp-for="ProductDescription" cols="20" rows="3" class="form-control"></textarea>
+                <span asp-validation-for="ProductDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductPrice" class="control-label"></label>
+                <input asp-for="ProductPrice" class="form-control" required />
+                <span asp-validation-for="ProductPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductQty" class="control-label"></label>
+                <input asp-for="ProductQty" class="form-control" required />
+                <span asp-validation-for="ProductQty" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label" style="margin-top:10px"></label>
+                <div style="margin-top:10px;margin-bottom:10px">
+
+                    <label>  @Html.RadioButtonFor(Model=>Model.CategoryId,value:1)Male</label>
+                    <br />
+                    <label>   @Html.RadioButtonFor(Model=>Model.CategoryId,value:2)Female</label>
+                    <br />
+                </div>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProductMaterial" class="control-label" style="margin-top:10px"></label>
+                <div style="margin-top:10px;margin-bottom:10px">
+                    <label>  @Html.RadioButtonFor(Model=>Model.ProductMaterial,value:"Cotton")Cotton</label>
+                    <br />
+                    <label>   @Html.RadioButtonFor(Model=>Model.ProductMaterial,value:"Polyester")Polyester</label>
+                </div>
+                <span asp-validation-for="ProductMaterial" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BrandId" class="control-label" style="margin-top:10px"></label>
+                <div style="margin-top:10px;margin-bottom:10px">
+                    <label>  @Html.RadioButtonFor(Model=>Model.BrandId,value:1)Sakura Brand</label>
+                    <br />
+                    <label>   @Html.RadioButtonFor(Model=>Model.BrandId,value:2)Naruto Brand</label>
+                    <br />
+                    <label>   @Html.RadioButtonFor(Model=>Model.BrandId,value:3)Sasuke Brand</label>
+                </div>
+                <span asp-validation-for="BrandId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <input asp-for="Size" class="form-control" required />
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Colour" class="control-label"></label>
+                <input asp-for="Colour" class="form-control" required />
+                <span asp-validation-for="Colour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductImg" class="control-label"></label>
+                <input asp-for="ProductImg" class="form-control" type="file" accept="image/jpg, image/jpeg, image/png" />
+                <span asp-validation-for="ProductImg" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/tinymce.min.js"></script>
+
+<script type="text/javascript">
+    tinymce.init({
+        selector: 'textarea',
+        plugins: "emoticons textcolor",
+        toolbar: "undo redo styleselect bold italic emoticons forecolor backcolor fontselect",
+        width: 600,
+        height: 600,
+        resize: 'both',
+        placeholder: 'Type here...',
+    });
+</script>

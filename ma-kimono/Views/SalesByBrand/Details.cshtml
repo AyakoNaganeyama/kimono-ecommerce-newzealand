@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* slaes by brand report Ayako *@
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<h1>Sales By Brand</h1>
+
+<div ng-app="myApp" ng-controller="reportCtrl">
+    <table class="table">
+        <tr>
+            <th>Brand Name</th>
+            <th>Sub Total</th>
+        </tr>
+
+        @*    //Products come from scope_products *@
+        <tr ng-repeat="item in reports">
+            <td>{{item.BrandName }}</td>
+            <td>${{item.Total}}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var _$http;
+    var _$scope;
+    var app = angular.module('myApp', []);
+    app.controller('reportCtrl', xConstrutor);
+    function xConstrutor($http, $scope) {
+        _$http = $http;
+        _$scope = $scope;
+        // makes an HTTP Get request to the "/Report/GetProducts" URL
+        // When the reponse is received, it calls the 'xReceive' function
+        $http.get("/SalesByBrand/GetBrand").then(xReceive);
+    }
+    function xReceive(reportObject) {
+        _$scope.reports = reportObject.data;
+    }
+</script>
+

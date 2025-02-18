@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql3": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/ayako-kimono/providers/Microsoft.ServiceLinker/linkers/ConnectionString_AB49CCF3C4",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/ma-kimonodbserver/databases/FS2024S1_Project01_Project_SSMS",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionString",
+      "dynamicId": null
+    }
+  }
+}
