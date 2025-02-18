@@ -8,7 +8,7 @@ The website is an ecommerce website that sell Kimono. The following are the main
 features of the kimono website:
 
 ### homepage:
-![Home Screenshot](../home.jpg)
+![Home Screenshot](ma-kimono/woooroot/home.jpg)
 
 
 ### for public audience: 
