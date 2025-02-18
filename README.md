@@ -81,14 +81,14 @@ password: Multi@123
 ![image](ma-kimono/wwwroot/Database)
 
 ## Usecase Diagram
-![image](ma-kimono/wwwroot/Database/UseCase)
+![image](ma-kimono/wwwroot/UseCase)
 
 ## Flow Diagram
-![image](ma-kimono/wwwroot/Database/Flow)
+![image](ma-kimono/wwwroot//Flow)
 
 
 ## Sequence Diagram
-![image](ma-kimono/wwwroot/Database/Sequence)
+![image](ma-kimono/wwwroot/Sequence)
 
 
 
