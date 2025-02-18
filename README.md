@@ -24,18 +24,18 @@ password: Multi@123
 - Display all products (Kimonos)
 ![Display All Products](ma-kimono/wwwroot/DisplayAll.jpg)
 - Search product by name
-![Search Product by name](ma-kimono/wwwroot/SearchProductByName)
+![Search Product by name](ma-kimono/wwwroot/SearchProductByName.jpg)
 
 
 
 - Sort product by price (lowest to highest/ highest to lowest)
-![image](ma-kimono/wwwroot/SortProductByPrice)
+![image](ma-kimono/wwwroot/SortProductByPrice.jpg)
 
 - Filter by gategories (male and female)
-![image](ma-kimono/wwwroot/FilterByCate)
+![image](ma-kimono/wwwroot/FilterByCate.jpg)
 
 - Create account
-![image](ma-kimono/wwwroot/CreateAccount)
+![image](ma-kimono/wwwroot/CreateAccount.jpg)
 
 
 
@@ -45,50 +45,50 @@ password: Multi@123
 ### for logged in users: 
 - See all products, search products by name, sort by price, filter by category (same functionalities as public users)
 - Add to shopping cart, remove from shopping cart
-![image](ma-kimono/wwwroot/ShoppingCart)
+![image](ma-kimono/wwwroot/ShoppingCart.jpg)
 
 
 - Confirm order
-![image](ma-kimono/wwwroot/OrderConfrim)
+![image](ma-kimono/wwwroot/OrderConfrim.jpg)
 
 - Manage subscription (apply 20% off)
-![image](ma-kimono/wwwroot/ManageSubs)
+![image](ma-kimono/wwwroot/ManageSubs.jpg)
 
 
 ### for admins:
 - Able implement to CRUD operation for product
-  ![image](ma-kimono/wwwroot/ProductCRUD)
+  ![image](ma-kimono/wwwroot/ProductCRUD.jpg)
    -  Create 
-  ![image](ma-kimono/wwwroot/CreatePro)
+  ![image](ma-kimono/wwwroot/CreatePro.jpg)
    -  Edit
-  ![image](ma-kimono/wwwroot/EditPro)
+  ![image](ma-kimono/wwwroot/EditPro.jpg)
    - Delete
-  ![image](ma-kimono/wwwroot/DeletePro)
+  ![image](ma-kimono/wwwroot/DeletePro.jpg)
   
 
 
 
 - able to CRUD operation for customers
-![image](ma-kimono/wwwroot/CustomerCRUD)
+![image](ma-kimono/wwwroot/CustomerCRUD.jpg)
 
 - Show report (Sales by brand, loyal top 3 customers)
 
-![image](ma-kimono/wwwroot/Reports)
+![image](ma-kimono/wwwroot/Reports.jpg)
 
 
 
 ## Database Diagram
-![image](ma-kimono/wwwroot/Database)
+![image](ma-kimono/wwwroot/Database.jpg)
 
 ## Usecase Diagram
-![image](ma-kimono/wwwroot/UseCase)
+![image](ma-kimono/wwwroot/UseCase.jpg)
 
 ## Flow Diagram
-![image](ma-kimono/wwwroot//Flow)
+![image](ma-kimono/wwwroot/Flow.jpg)
 
 
 ## Sequence Diagram
-![image](ma-kimono/wwwroot/Sequence)
+![image](ma-kimono/wwwroot/Sequence.jpg)
 
 
 
