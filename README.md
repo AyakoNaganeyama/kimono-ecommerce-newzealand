@@ -1,5 +1,6 @@
 # Kimono e-commerce website
 
+##  The original repository was recreated due to sensitive information in the commit history
 
 ## About
 
