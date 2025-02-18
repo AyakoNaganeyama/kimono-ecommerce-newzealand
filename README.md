@@ -8,7 +8,8 @@ The website is an ecommerce website that sell Kimono. The following are the main
 features of the kimono website:
 
 ### homepage:
-![image](wwwroot/assets/home.jpg)
+![Home Screenshot](https://raw.githubusercontent.com/AyakoNaganeyama/kimono-newzealand/main/wwwroot/assets/home.jpg)
+
 
 ### for public audience: 
 - Display all products (Kimonos)
