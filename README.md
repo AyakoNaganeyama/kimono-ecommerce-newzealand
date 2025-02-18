@@ -13,7 +13,7 @@ features of the kimono website:
 
 ### for public audience: 
 - Display all products (Kimonos)
-![Display All Products](ma-kimono/wwwroot/DisplayAll)
+![Home Screenshot](ma-kimono/wwwroot/DisplayAll.jpg)
 - Search product by name
 ![image](https://github.com/user-attachments/assets/1dde9b87-807d-4a1d-abff-5ad94a38dfb6)
 
