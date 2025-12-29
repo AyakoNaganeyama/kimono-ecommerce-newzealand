@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-/////////////////just added comments more comments2
+/////////////////just added comments more comments
 ///
 //var googleClientId = builder.Configuration["Authentication:Google:ClientId"];
 //var googleClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
